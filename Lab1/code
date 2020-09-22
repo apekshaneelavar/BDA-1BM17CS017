@@ -1,0 +1,96 @@
+> use College
+switched to db College
+> db.Student.drop()
+true
+> db.createCollection("Student")
+{ "ok" : 1 }
+> db.Student.insert({usn:"1BM15CS197",name:"Alex", department:"CSE", sem:5, Subjects:["Project
+Management", "C++"]})
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({usn:"1BM15CS117",name:"Victor", department:"ISE", sem:4, Subjects:["OS",
+"Java"]})
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({usn:"1BM18CS124",name:"Jane", department:"CSE", sem:6, Subjects:["Cloud
+Computing", "Python", "FLN"]})
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({usn:"1BM18CS164",name:"Laura", department:"CSE", sem:3, Subjects:["DS",
+"Java", "FLN"]})
+WriteResult({ "nInserted" : 1 })
+> db.Student.insert({usn:"1BM17CS017",name:"Apeksha", department:"CSE", sem:7, Subjects:["Big
+Data", "WP", "DSR"]})
+WriteResult({ "nInserted" : 1 })
+> db.Student.find({name:"Apeksha"})
+{ "_id" : ObjectId("5f69b633b31d5ebf049e23c4"), "usn" : "1BM17CS017", "name" : "Apeksha",
+"department" : "CSE", "sem" : 7, "Subjects" : [ "Big Data", "WP", "DSR" ] }
+> db.createCollection("Faculty")
+{ "ok" : 1 }
+> db.Faculty.insert({faculty_id:20001, name:"Tom", department:"CSE", subjects:["DSR"]})
+WriteResult({ "nInserted" : 1 })
+> db.Faculty.insert({faculty_id:20002, name:"Larry", department:"ISE", subjects:["Big Data"]})
+WriteResult({ "nInserted" : 1 })
+> db.Faculty.insert({faculty_id:20003, name:"Pierre", department:"CSE", subjects:["Java","Python"]})
+WriteResult({ "nInserted" : 1 })
+> db.Faculty.insert({faculty_id:20004, name:"Kellie", department:"CSE", subjects:["C++","OS","DS"]})
+
+WriteResult({ "nInserted" : 1 })
+> db.createCollection("COE")
+{ "ok" : 1 }
+> db.COE.insert({coe_id:101, name:"Bradley", experience:12, age:46})
+WriteResult({ "nInserted" : 1 })
+> db.COE.insert({coe_id:102, name:"Leo", experience:10, age:48})
+WriteResult({ "nInserted" : 1 })
+> db.COE.insert({coe_id:103, name:"Polo", experience:9, age:42})
+WriteResult({ "nInserted" : 1 })
+> db.COE.insert({coe_id:104, name:"Jerry", experience:8, age:40})
+WriteResult({ "nInserted" : 1 })
+> db.Faculty.find({name:"Larry"})
+{ "_id" : ObjectId("5f69b785b31d5ebf049e23c6"), "faculty_id" : 20002, "name" : "Larry",
+"department" : "ISE", "subjects" : [ "Big Data" ] }
+> db.COE.find({name:"Polo"})
+{ "_id" : ObjectId("5f69b957b31d5ebf049e23cb"), "coe_id" : 103, "name" : "Polo", "experience" : 9,
+"age" : 42 }
+> db.createCollection("Library")
+{ "ok" : 1 }
+> db.Library.insert({book_id:1001,book_name:"Learn DSR",genre:"CS",librarian:"Eshaan"})
+WriteResult({ "nInserted" : 1 })
+> db.Library.insert({book_id:1002,book_name:"Learn Big data",genre:"CS",librarian:"Eshaan"})
+WriteResult({ "nInserted" : 1 })
+> db.Library.insert({book_id:1003,book_name:"Learn Electronics",genre:"EC",librarian:"Pinty"})
+WriteResult({ "nInserted" : 1 })
+> db.Library.insert({book_id:1004,book_name:"Learn
+Networking",genre:"Networking",librarian:"Pinty"})
+WriteResult({ "nInserted" : 1 })
+> db.Library.find({book_name:"Learn Big data"})
+{ "_id" : ObjectId("5f69bb93b31d5ebf049e23ce"), "book_id" : 1002, "book_name" : "Learn Big data",
+"genre" : "CS", "librarian" : "Eshaan" }
+> db.createCollection("Admission")
+
+{ "ok" : 1 }
+> db.Admission.insert({admission_id:001, name:"Henry",department:"CSE", admin:"Pierre"})
+WriteResult({ "nInserted" : 1 })
+> db.Admission.insert({admission_id:002, name:"Ross",department:"CSE", admin:"Rachel"})
+WriteResult({ "nInserted" : 1 })
+> db.Admission.insert({admission_id:003, name:"Chandler",department:"CSE", admin:"Monica"})
+WriteResult({ "nInserted" : 1 })
+> db.Admission.insert({admission_id:004, name:"Joey",department:"CSE", admin:"Pheobe"})
+WriteResult({ "nInserted" : 1 })
+> db.Admission.find({name:"Joey"})
+{ "_id" : ObjectId("5f69bd06b31d5ebf049e23d4"), "admission_id" : 4, "name" : "Joey", "department"
+: "CSE", "admin" : "Pheobe" }
+> db.createCollection("CollegeFestival")
+{ "ok" : 1 }
+> db.CollegeFestival.insert({event_id:001, event_name:"Fashion show",date:"07/07/2020",
+time:"06:00 PM", venue:"BMS", participants:15})
+WriteResult({ "nInserted" : 1 })
+> db.CollegeFestival.insert({event_id:002, event_name:"Dance",date:"08/07/2020", time:"07:00
+PM", venue:"BMS", participants:9})
+WriteResult({ "nInserted" : 1 })
+> db.CollegeFestival.insert({event_id:003, event_name:"Turtle Jam",date:"09/07/2020", time:"06:00
+PM", venue:"BMS", participants:10})
+WriteResult({ "nInserted" : 1 })
+> db.CollegeFestival.insert({event_id:004, event_name:"EDM",date:"10/07/2020", time:"05:00 PM",
+venue:"BMS", participants:12})
+WriteResult({ "nInserted" : 1 })
+> db.CollegeFestival.find({event_name:"EDM"})
+{ "_id" : ObjectId("5f69be58b31d5ebf049e23d8"), "event_id" : 4, "event_name" : "EDM", "date" :
+"10/07/2020", "time" : "05:00 PM", "venue" : "BMS", "participants" : 12 }
