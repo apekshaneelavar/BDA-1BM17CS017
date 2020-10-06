@@ -1,0 +1,11 @@
+use Student
+db.createCollection("Student")
+show collections
+db.Student.insertMany([{name:"Apeksha",roll_no:8,age:21,contact_no:9999999999,email_id:"apeksha@gmail.com"},{name:"Aminta",roll_no:9,age:21,contact_no:8888888888,email_id:"aminta@gmail.com"},{name:"Chandana",roll_no:10,age:21,contact_no:7777777777,email_id:"chandana@gmail.com"},{name:"Kanishka",roll_no:11,age:21,contact_no:6666666666,email_id:"kanishka@gmail.com"},{name:"Rachel",roll_no:12,age:21,contact_no:5555555555,email_id:"rachel@gmail.com"}])
+db.Student.find()
+db.Student.findOneAndUpdate({roll_no:10},{$set:{email_id:"chandu@gmail.com"}})
+db.Student.find()
+db.Student.findOneAndReplace({name:"Kanishka"},{name:"Monica",roll_no:11,age:21,contact_no:6666666666,email_id:"monica@gmail.com"})
+db.Student.find()
+db.Student.drop()
+db.Student.find()
