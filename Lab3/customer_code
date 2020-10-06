@@ -1,0 +1,8 @@
+use customer
+db.createCollection("customers")
+db.customers.insertMany([{cust_id:11,acc_bal:4000,acc_type:"Z"},{cust_id:12,acc_bal:2200,acc_type:"Z"},{cust_id:13,acc_bal:3500,acc_type:"Z"},{cust_id:14,acc_bal:5700,acc_type:"Y"}])
+db.customers.find().pretty()
+db.customers.find({acc_type:"Z",acc_bal:{$gt:1200}})
+db.customers.aggregate([{$group: {_id: "$cust_id",min_bal: {$min: "$acc_bal"},max_bal: {$max: "$acc_bal"}}}]);
+db.customers.drop()
+db.customers.find()
