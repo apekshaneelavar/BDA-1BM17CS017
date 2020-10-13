@@ -1,0 +1,5 @@
+use performance
+show collections
+db.mongodbHandson.find().pretty()
+db.mongodbHandson.aggregate([{$group:{"_id":"_id",SumValue:{$sum:"$math score"}}}])
+db.mongodbHandson.aggregate([{$group:{"_id":"_id",AverageValue:{$avg:"$reading score"}}}])
